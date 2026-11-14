@@ -2,8 +2,8 @@
 
 **Autor:** Pedro Pesántez
 **Modalidad:** desarrollo individual
-**Sitio desplegado:** https://TU-PROYECTO.vercel.app
-**Repositorio:** https://github.com/TU_USUARIO/poke-arena
+**Sitio desplegado:** https://pokearena-beta.vercel.app/
+**Repositorio:** https://github.com/pedropesantez/Pokearena
 
 ## Propósito
 
