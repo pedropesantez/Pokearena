@@ -1,0 +1,24 @@
+:root {
+  --bg: #1e2127;
+  --panel: #2a2e36;
+  --panel-2: #353a44;
+  --border: #444a56;
+  --text: #e8eaed;
+  --muted: #9ba1ab;
+  --accent: #d9a441;
+  --blue: #4a6fa5;
+  --danger: #c4585c;
+  --ok: #5a9e72;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+button { font: inherit; cursor: pointer; }

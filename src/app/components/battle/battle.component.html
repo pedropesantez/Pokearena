@@ -1,0 +1,56 @@
+<section class="arena">
+  <div class="slot">
+    <div class="search">
+      <input
+        type="text"
+        placeholder="Ej: pikachu"
+        [(ngModel)]="name1"
+        (keyup.enter)="search(1)"
+        [disabled]="busy()"
+      />
+      <button (click)="search(1)" [disabled]="busy()">Buscar</button>
+    </div>
+    <app-pokemon-card
+      side="left"
+      [pokemon]="p1()"
+      [currentHp]="hp1()"
+      [maxHp]="max1()"
+      [hit]="hit1()"
+      [winner]="winner() === 'left'"
+    />
+  </div>
+
+  <div class="vs">VS</div>
+
+  <div class="slot">
+    <div class="search">
+      <input
+        type="text"
+        placeholder="Ej: charizard"
+        [(ngModel)]="name2"
+        (keyup.enter)="search(2)"
+        [disabled]="busy()"
+      />
+      <button (click)="search(2)" [disabled]="busy()">Buscar</button>
+    </div>
+    <app-pokemon-card
+      side="right"
+      [pokemon]="p2()"
+      [currentHp]="hp2()"
+      [maxHp]="max2()"
+      [hit]="hit2()"
+      [winner]="winner() === 'right'"
+    />
+  </div>
+</section>
+
+<p class="msg" [attr.data-kind]="message().kind">{{ message().text }}</p>
+
+<div class="actions">
+  <button class="fight" (click)="fight()" [disabled]="!canFight()">Pelear</button>
+  <button class="reset" (click)="reset()">Reiniciar</button>
+</div>
+
+<div class="banner" [class.show]="winner() !== null">{{ winnerText() }}</div>
+
+<app-battle-log [entries]="log()" />

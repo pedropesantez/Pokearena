@@ -1,0 +1,214 @@
+
+:host {
+  display: block;
+}
+
+/* Tarjeta principal */
+.card {
+  position: relative;
+  min-height: 540px;
+  padding: 20px;
+  border-radius: var(--radius, 12px);
+  border: 1px solid var(--border, #444);
+  background: var(--panel, #242424);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Estado vacío */
+.placeholder {
+  display: none;
+  min-height: 500px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.card.empty .placeholder {
+  display: flex;
+}
+
+.card.empty .content {
+  display: none;
+}
+
+/* POKÉBOLA ROJA Y BLANCA */
+.ball {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 4px solid #222;
+  background: linear-gradient(
+    to bottom,
+    #e53935 0%,
+    #e53935 46%,
+    #222 46%,
+    #222 54%,
+    #ffffff 54%,
+    #ffffff 100%
+  );
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón central de la Pokébola */
+.ball::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #ffffff;
+  border: 4px solid #222;
+  box-sizing: border-box;
+}
+
+/* Estados del combate */
+.card.hit {
+  border-color: var(--danger, #e53935);
+}
+
+.card.winner {
+  border: 2px solid var(--accent, #ffcb05);
+}
+
+.card.fainted {
+  opacity: 0.5;
+}
+
+/* Número del Pokémon */
+.num {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+/* Imagen del Pokémon */
+.art {
+  height: 200px;
+  display: grid;
+  place-items: center;
+  background: var(--panel-2, #303030);
+  border-radius: var(--radius, 12px);
+}
+
+.art img {
+  max-width: 100%;
+  max-height: 190px;
+  object-fit: contain;
+  filter: drop-shadow(
+    0 5px 8px rgba(0, 0, 0, 0.2)
+  );
+}
+
+/* Nombre del Pokémon */
+h2 {
+  text-align: center;
+  margin: 12px 0 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Tipos de Pokémon */
+.types {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.type {
+  padding: 4px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Información de vida */
+.hp-top {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* Barra de vida */
+.hp-bar {
+  height: 12px;
+  border-radius: 6px;
+  background: var(--bg, #181818);
+  overflow: hidden;
+}
+
+.hp-fill {
+  height: 100%;
+  border-radius: 6px;
+}
+
+/* Vida alta */
+.hp-fill[data-level='high'] {
+  background: var(--ok, #4caf50);
+}
+
+/* Vida media */
+.hp-fill[data-level='mid'] {
+  background: #f5b301;
+}
+
+/* Vida baja */
+.hp-fill[data-level='low'] {
+  background: var(--danger, #e53935);
+}
+
+/* Estadísticas */
+.stats {
+  list-style: none;
+  padding: 0;
+  margin-top: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.stats li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 8px;
+  font-size: 0.85rem;
+}
+
+.label {
+  color: var(--muted);
+}
+
+.val {
+  font-weight: 700;
+}
+
+/* Fondo de las barras de estadísticas */
+.bar {
+  grid-column: 1 / -1;
+  height: 6px;
+  border-radius: 4px;
+  background: var(--bg, #181818);
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+/* Relleno de estadísticas */
+.fill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--blue, #2196f3);
+}

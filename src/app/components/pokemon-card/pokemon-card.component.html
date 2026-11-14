@@ -1,0 +1,49 @@
+<article
+  class="card"
+  [class.empty]="!pokemon()"
+  [class.hit]="hit()"
+  [class.winner]="winner()"
+  [class.fainted]="fainted()"
+  [attr.data-side]="side()"
+>
+  <div class="placeholder">
+    <span class="ball"></span>
+    <p>Busca un Pokémon</p>
+  </div>
+
+  <div class="content">
+    <span class="num">{{ number() }}</span>
+
+    <div class="art">
+      <img [attr.src]="image() || null" [alt]="name()" />
+    </div>
+
+    <h2>{{ name() }}</h2>
+
+    <div class="types">
+      @for (t of types(); track t.name) {
+        <span class="type" [style.background]="t.color">{{ t.name }}</span>
+      }
+    </div>
+
+    <div class="hp">
+      <div class="hp-top">
+        <span>HP</span>
+        <span>{{ hpLabel() }}</span>
+      </div>
+      <div class="hp-bar">
+        <div class="hp-fill" [attr.data-level]="hpLevel()" [style.width.%]="hpPercent()"></div>
+      </div>
+    </div>
+
+    <ul class="stats">
+      @for (s of stats(); track s.label) {
+        <li>
+          <span class="label">{{ s.label }}</span>
+          <span class="val">{{ s.value }}</span>
+          <div class="bar"><div class="fill" [style.width.%]="s.percent"></div></div>
+        </li>
+      }
+    </ul>
+  </div>
+</article>

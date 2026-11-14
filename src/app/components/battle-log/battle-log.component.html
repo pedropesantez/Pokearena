@@ -1,0 +1,11 @@
+<section class="log">
+  <h3>Registro de combate</h3>
+  <div class="box" #box [class.filled]="hasEntries()">
+    <p class="empty">Aquí aparecerá el desarrollo del combate.</p>
+    <ol>
+      @for (e of entries(); track $index) {
+        <li [attr.data-kind]="e.kind">{{ e.text }}</li>
+      }
+    </ol>
+  </div>
+</section>

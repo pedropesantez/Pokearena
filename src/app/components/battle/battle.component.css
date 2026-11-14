@@ -1,0 +1,71 @@
+:host { display: block; }
+
+.arena {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.search { display: flex; gap: 8px; margin-bottom: 14px; }
+
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+}
+input:focus { outline: 2px solid var(--blue); }
+
+button {
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--blue);
+}
+button:hover:not(:disabled) { background: #5a80b8; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+
+.vs { font-size: 1.8rem; font-weight: 900; color: var(--accent); }
+
+/* Mensajes: el CSS decide el color según data-kind */
+.msg {
+  min-height: 24px;
+  margin: 18px 0 8px;
+  text-align: center;
+  font-weight: 600;
+}
+.msg[data-kind=''] { visibility: hidden; }
+.msg[data-kind='ok'] { color: var(--ok); }
+.msg[data-kind='error'] { color: var(--danger); }
+.msg[data-kind='loading'] { color: var(--accent); }
+
+.actions { display: flex; justify-content: center; gap: 12px; margin-bottom: 16px; }
+.fight { background: var(--danger); font-size: 1.05rem; padding: 12px 30px; }
+.fight:hover:not(:disabled) { background: #d46a6e; }
+.reset { background: var(--panel-2); }
+.reset:hover:not(:disabled) { background: var(--border); }
+
+/* Banner del ganador: aparece solo con la clase .show */
+.banner {
+  display: none;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.banner.show { display: block; }
+
+app-battle-log { display: block; margin-top: 8px; }
+
+@media (max-width: 820px) {
+  .arena { grid-template-columns: 1fr; }
+  .vs { text-align: center; }
+}
